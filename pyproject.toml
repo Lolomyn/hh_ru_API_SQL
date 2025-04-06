@@ -9,6 +9,21 @@ readme = "README.md"
 python = "^3.12"
 
 
+[tool.poetry.group.dev.dependencies]
+psycopg2 = "^2.9.10"
+requests = "^2.32.3"
+
+
+[tool.poetry.group.lint.dependencies]
+mypy = "^1.15.0"
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.2.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.5"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

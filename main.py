@@ -1,10 +1,9 @@
 from src.config import config
 from src.db_manager import DBManagerPostgres, HeadHunterAPI
 
-hh_api = HeadHunterAPI()
-params = config()
-
 if __name__ == "__main__":
+    hh_api = HeadHunterAPI()
+    params = config()
 
     employer_ids = [
         78638,  # Т-БАНК
@@ -22,6 +21,8 @@ if __name__ == "__main__":
 
     employers = hh_api.get_employers(employer_ids)
 
+
+def main():
     vacancies = []
     for employer in employers:
         vacancies.extend(hh_api.get_vacancies(employer["id"]))

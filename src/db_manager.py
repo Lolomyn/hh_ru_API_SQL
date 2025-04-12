@@ -186,7 +186,6 @@ class DBManagerPostgres(DBManager):
                 SELECT employers.name, title, salary_from, salary_to, currency, vacancies.url
                 FROM vacancies
                 JOIN employers USING(employer_id)
-                LIMIT 25
             """
         )
         return self.cur.fetchall()
@@ -212,7 +211,6 @@ class DBManagerPostgres(DBManager):
                 JOIN employers USING(employer_id)
                 WHERE (salary_from + salary_to) / 2 > %s
                 ORDER BY salary DESC
-                LIMIT 25
             """,
             (avg_salary,),
         )
@@ -226,7 +224,6 @@ class DBManagerPostgres(DBManager):
                 FROM vacancies
                 JOIN employers USING(employer_id)
                 WHERE title LIKE %s OR requirement LIKE %s
-                LIMIT 25
             """,
             (f"%{keyword}%", f"%{keyword}%"),
         )
